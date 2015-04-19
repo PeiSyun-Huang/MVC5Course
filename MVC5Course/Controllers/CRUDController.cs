@@ -12,12 +12,15 @@ namespace MVC5Course.Controllers
     {
         FabricsEntities db = new FabricsEntities();
         // GET: CRUD
-        public ActionResult Index()
+        public ActionResult Index(string keyword,int limit = 10)
         {
             //var data = db.Product.Where(p => p.ProductName.StartsWith("c") && p.Price <= 10 && p.Price >= 5);
 
-            var data = db.Product.Where(p => p.ProductName.StartsWith("c"));
-
+            var data = db.Product
+                .Where(p => p.ProductName.StartsWith(keyword))
+                .Take(limit);
+            ViewBag.keyword = keyword;
+            ViewBag.limit = limit;
             return View(data);
         }
 
