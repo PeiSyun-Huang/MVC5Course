@@ -26,7 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.DateOfBirth)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CreditRating)
         </th>
         <th>
@@ -53,12 +53,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Latitude)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Notes)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Occupation.OccupationName)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -79,7 +79,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.DateOfBirth)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CreditRating)
         </td>
         <td>
@@ -106,12 +106,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Latitude)
         </td>
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.Notes)
-        </td>*@
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Occupation.OccupationName)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |
