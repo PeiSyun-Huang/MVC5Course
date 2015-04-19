@@ -22,7 +22,7 @@ namespace MVC5Course.Models
     
         public int ProductId { get; set; }
         [Required(ErrorMessageResourceType=typeof(Resources.Products),ErrorMessageResourceName="ProductNameRequired")]
-        [StringLength(10)]
+        //[StringLength(10,ErrorMessage="產品名稱不可大於10個字元")]
         public string ProductName { get; set; }
         [Required]
         public Nullable<decimal> Price { get; set; }
