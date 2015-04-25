@@ -187,6 +187,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActionResultController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
@@ -403,6 +404,8 @@
     <Content Include="Views\CRUD\Create.cshtml" />
     <Content Include="Views\JQuery\each.cshtml" />
     <Content Include="Views\Base\Debug.cshtml" />
+    <Content Include="Views\ActionResult\View2.cshtml" />
+    <Content Include="Views\ActionResult\SharedView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
