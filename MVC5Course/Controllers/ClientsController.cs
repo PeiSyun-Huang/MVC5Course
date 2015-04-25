@@ -131,7 +131,7 @@ namespace MVC5Course.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Client client = repoClient.Find(id);
-            client.IsDelete = true;
+            repoClient.Delete(client);
             repoClient.UnitOfWork.Commit();
             return RedirectToAction("Index");
         }

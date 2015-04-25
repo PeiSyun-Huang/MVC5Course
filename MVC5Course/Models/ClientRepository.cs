@@ -15,6 +15,11 @@ namespace MVC5Course.Models
         {
             return this.All().Where(c => c.ClientId == id).FirstOrDefault();
         }
+
+        public void Delete(Client client)
+        {
+            client.IsDelete = true;
+        }
 	}
 
 	public  interface IClientRepository : IRepository<Client>
