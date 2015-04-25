@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class JQueryController : Controller
+    public class JQueryController : BaseController
     {
         // GET: JQuery
         public ActionResult Index()

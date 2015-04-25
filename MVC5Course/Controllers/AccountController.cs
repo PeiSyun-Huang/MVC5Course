@@ -13,10 +13,11 @@ using MVC5Course.Models;
 namespace MVC5Course.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        // 移至 BaseController
+        //private ApplicationSignInManager _signInManager;
+        //private ApplicationUserManager _userManager;
 
         public AccountController()
         {

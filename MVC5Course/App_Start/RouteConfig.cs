@@ -17,9 +17,10 @@ namespace MVC5Course
                 name: "General",
                 url: "{controller}.{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                //, 
-                //// id 限制為數字，目前有問題，無論怎麼點選都是同一頁。
-                //constraints: new {
+                //,
+                //// id 限制為數字，目前有BUG，需額外判斷無ID的問題。
+                //constraints: new
+                //{
                 //    id = @"\d+"
                 //}
             );

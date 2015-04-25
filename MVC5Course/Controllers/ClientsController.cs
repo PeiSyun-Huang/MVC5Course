@@ -10,13 +10,11 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
-    public class ClientsController : Controller
+    public class ClientsController : BaseController
     {
-        //private FabricsEntities db = new FabricsEntities();
-
-        ClientRepository repoClient = RepositoryHelper.GetClientRepository();
-
-        OccupationRepository repoOccupation = RepositoryHelper.GetOccupationRepository();
+        // 移至 BaseController
+        //ClientRepository repoClient = RepositoryHelper.GetClientRepository();
+        //OccupationRepository repoOccupation = RepositoryHelper.GetOccupationRepository();
 
         public ActionResult Login()
         {
