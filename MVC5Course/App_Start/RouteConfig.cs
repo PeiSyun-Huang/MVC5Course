@@ -14,9 +14,21 @@ namespace MVC5Course
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "Docs/{controller}.{action}/{id}",
+                name: "General",
+                url: "{controller}.{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //, 
+                //// id 限制為數字，目前有問題，無論怎麼點選都是同一頁。
+                //constraints: new {
+                //    id = @"\d+"
+                //}
+            );
+
+            // 使上面對應不到後，可以讀到首頁。
+            routes.MapRoute(
+                name: "Default",
+                url: "",
+                defaults: new { controller = "Home", action = "Index" }
             );
         }
     }
