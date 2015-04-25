@@ -36,6 +36,7 @@ namespace MVC5Course.Models
         public Nullable<double> Longitude { get; set; }
         public Nullable<double> Latitude { get; set; }
         public string Notes { get; set; }
+        public bool IsDelete { get; set; }
     
         public virtual Occupation Occupation { get; set; }
         public virtual ICollection<Order> Order { get; set; }
