@@ -89,5 +89,15 @@ namespace MVC5Course.Controllers
                 return File(data, "image/png", "谷哥.png");
             }
         }
+
+        public ActionResult RunJaveScriptView()
+        {
+            return View();
+        }
+
+        public ActionResult RunJavaScript()
+        {
+            return JavaScript("alert('JS OK!')");
+        }
     }
 }

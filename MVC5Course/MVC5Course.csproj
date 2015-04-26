@@ -339,6 +339,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -415,6 +417,7 @@
     <Content Include="Views\ActionResult\File5.cshtml" />
     <Content Include="Views\ActionResult\File6.cshtml" />
     <Content Include="Views\ActionResult\GetChineseFile.cshtml" />
+    <Content Include="Views\ActionResult\RunJaveScriptView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
