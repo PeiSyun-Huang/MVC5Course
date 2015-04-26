@@ -300,8 +300,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\logo11w.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\File5.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -406,10 +408,14 @@
     <Content Include="Views\Base\Debug.cshtml" />
     <Content Include="Views\ActionResult\View2.cshtml" />
     <Content Include="Views\ActionResult\SharedView.cshtml" />
+    <Content Include="Views\ActionResult\File1.cshtml" />
+    <Content Include="Views\ActionResult\File2.cshtml" />
+    <Content Include="Views\ActionResult\File3.cshtml" />
+    <Content Include="Views\ActionResult\File4.cshtml" />
+    <Content Include="Views\ActionResult\File5.cshtml" />
+    <Content Include="Views\ActionResult\File6.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
