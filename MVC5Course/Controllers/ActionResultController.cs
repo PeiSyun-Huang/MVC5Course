@@ -72,5 +72,22 @@ namespace MVC5Course.Controllers
         {
             return File(Server.MapPath("~/Content/File5.html"), "text/plain");
         }
+
+        // 輸出中文檔名
+        public ActionResult GetChineseFile()
+        {
+            WebClient wc = new WebClient();
+            var data = wc.DownloadData("https://www.google.com.tw/images/srpr/logo11w.png");
+            if (Request.Browser.Browser == "IE" && Convert.ToInt32(Request.Browser.MajorVersion) < 9)
+            {
+                // 舊版 IE 使用舊的相容性 作法
+                return File(data, "image/png", Server.UrlPathEncode("谷哥.png"));
+            }
+            else
+            {
+                // 新版瀏覽器使用 RFC2231 規範的 Header Value 做法
+                return File(data, "image/png", "谷哥.png");
+            }
+        }
     }
 }

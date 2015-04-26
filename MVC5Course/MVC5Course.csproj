@@ -414,6 +414,7 @@
     <Content Include="Views\ActionResult\File4.cshtml" />
     <Content Include="Views\ActionResult\File5.cshtml" />
     <Content Include="Views\ActionResult\File6.cshtml" />
+    <Content Include="Views\ActionResult\GetChineseFile.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
