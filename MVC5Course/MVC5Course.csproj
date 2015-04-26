@@ -426,7 +426,6 @@
     <Content Include="Views\ModelBinding\TempData2.cshtml" />
     <Content Include="Views\ModelBinding\Simple1.cshtml" />
     <Content Include="Views\ModelBinding\Complex2.cshtml" />
-    <Content Include="Views\ModelBinding\Complex3.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
