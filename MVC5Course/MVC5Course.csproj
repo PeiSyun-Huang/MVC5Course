@@ -194,6 +194,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JQueryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ModelBindingController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -419,6 +420,9 @@
     <Content Include="Views\ActionResult\GetChineseFile.cshtml" />
     <Content Include="Views\ActionResult\RunJaveScriptView.cshtml" />
     <Content Include="Views\ActionResult\JQueryToGetJsonData.cshtml" />
+    <Content Include="Views\ModelBinding\Index.cshtml" />
+    <Content Include="Views\ModelBinding\TempData1.cshtml" />
+    <Content Include="Views\ModelBinding\TempData2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

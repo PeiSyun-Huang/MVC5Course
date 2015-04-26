@@ -1,0 +1,18 @@
+﻿@model MVC5Course.Models.Product
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<br />
+
+Model.ProductName: @Model.ProductName
+
+<br />
+
+@{
+    var product = ViewBag.Product as MVC5Course.Models.Product;
+}
+
+ViewBag.Product = @product.ProductName
