@@ -428,6 +428,7 @@
     <Content Include="Views\ModelBinding\Complex2.cshtml" />
     <Content Include="Views\ModelBinding\Complex3.cshtml" />
     <Content Include="Views\ModelBinding\Complex4.cshtml" />
+    <Content Include="Views\ModelBinding\Complex5.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

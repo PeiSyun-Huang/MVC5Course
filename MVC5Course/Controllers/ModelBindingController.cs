@@ -143,5 +143,37 @@ namespace MVC5Course.Controllers
             }
             return Content(sb.ToString());
         }
+
+        public ActionResult Complex5()
+        {
+            return View();
+        }
+
+        // 模組繫結和延遲驗證實作
+        // 如果在接收資料時是用強型別(Model)，則會在進來此Action前就已經預先驗證完畢
+        // 反之，用弱型別(FormCollection)，則會在進來Action時才驗證，且必須自行實作其驗證功能
+        /*
+         模型繫結預先驗證
+             自動完成所有模型繫結與模型驗證工作
+                 ModelState.IsValid
+         模型繫結延遲驗證
+             到Action 裡才執行模型繫結與模型驗證工作
+                 UpdateModel<T>
+                     驗證失敗就會丟出InvalidOperationException 例外
+                 TryUpdateModel<T>
+                     不用再額外判斷ModelState.IsValid 的值!
+         自訂驗證失敗錯誤訊息到View 的方法
+             ModelState.AddModelError("欄位名稱", "錯誤訊息")
+         */
+        [HttpPost]
+        public ActionResult Complex5(FormCollection form)
+        {
+            var item = new Simple1ViewModel();
+            if (TryUpdateModel<Simple1ViewModel>(item))
+            {
+                return RedirectToAction("Complex5");
+            }
+            return View(item);
+        }
     }
 }
