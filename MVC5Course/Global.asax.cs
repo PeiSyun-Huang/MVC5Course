@@ -18,6 +18,11 @@ namespace MVC5Course
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // 減少搜尋 View檔案的時間
+            // 先找控制器資料夾下與Action同名的View，若無則改找Shared資料夾下的View，若無則拋出找不到View的例外。
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new RazorViewEngine());
         }
     }
 }
