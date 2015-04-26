@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -97,6 +98,50 @@ namespace MVC5Course.Controllers
         public ActionResult Complex2(Simple1ViewModel item1, Simple1ViewModel item2)
         {
             return Content("Complex2:" + item1.Username + " / " + item1.Password + "<br/>" + item2.Username + " / " + item2.Password);
+        }
+
+        public ActionResult Complex3()
+        {
+            return View();
+        }
+
+        // 強迫前輟詞要 item ，即 item.欄位名稱
+        [HttpPost]
+        public ActionResult Complex3(
+            [Bind(Prefix="item")]
+            Simple1ViewModel item)
+        {
+            return Content("Complex3:" + item.Username + " / " + item.Password);
+        }
+
+        public ActionResult Complex4()
+        {
+            // 從Client資料表內取得資料，並轉成 Simple1ViewModel 類別，一併將該類別屬性填入資料
+            var data = from p in db.Client
+                       select new Simple1ViewModel
+                       {
+                           Username = p.FirstName,
+                           Password = p.LastName,
+                           Age = 18
+                       };
+            return View(data.Take(10));
+        }
+
+        // 因為IList<T>，強迫前輟詞要 item[i] ，即 item[i].欄位名稱
+        [HttpPost]
+        public ActionResult Complex4(IList<Simple1ViewModel> item)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Complex4:");
+            for (int i = 0; i < item.Count; i++)
+            {
+                sb.Append(item[i].Username + " / " + item[i].Password + " / " + item[i].Age);
+                if (i < item.Count - 1)
+                {
+                    sb.Append("<br/>");
+                }
+            }
+            return Content(sb.ToString());
         }
     }
 }

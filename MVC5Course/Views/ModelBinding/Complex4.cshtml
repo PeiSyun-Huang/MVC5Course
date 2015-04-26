@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC5Course.Models.Simple1ViewModel>
+
+@{
+    ViewBag.Title = "Complex4";
+}
+@*
+    因為要想辦法把表單的欄位名稱弄出 item[i].欄位名稱 ，因此宣告一個 item 把原本的 model 轉成陣列
+    
+    把原本的 item.欄位名稱 改成 item[i].欄位名稱
+*@
+
+@{
+    var item = Model.ToArray();
+}
+
+<h2>Complex4</h2>
+
+
+@* 將原本List變成表單需補上表單的語法 *@
+@using (Html.BeginForm())
+{
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+    </tr>
+
+@for (var i = 0; i < item.Length; i++)
+{
+    <tr>
+        <td>
+            @Html.EditorFor(modelItem => item[i].Username)
+        </td>
+        <td>
+            @Html.EditorFor(modelItem => item[i].Password)
+        </td>
+        <td>
+            @Html.EditorFor(modelItem => item[i].Age)
+        </td>
+    </tr>
+}
+
+</table>
+    
+    @* 補上表單的送出按鈕 *@
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+}
