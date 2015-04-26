@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "JQueryToGetJsonData";
+}
+
+<h2>JQueryToGetJsonData</h2>
+
+
+<button onclick="getData()">Get Product top 10 Data</button>
+
+<script>
+    function getData() {
+        $.getJSON("Json1", null, function (data) {
+            console.log(data);
+        });
+    }
+</script>

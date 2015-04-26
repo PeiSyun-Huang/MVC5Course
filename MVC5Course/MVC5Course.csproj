@@ -418,6 +418,7 @@
     <Content Include="Views\ActionResult\File6.cshtml" />
     <Content Include="Views\ActionResult\GetChineseFile.cshtml" />
     <Content Include="Views\ActionResult\RunJaveScriptView.cshtml" />
+    <Content Include="Views\ActionResult\JQueryToGetJsonData.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

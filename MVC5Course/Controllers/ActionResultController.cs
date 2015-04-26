@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class ActionResultController : Controller
+    public class ActionResultController : BaseController
     {
         // GET: ActionResult
         public ActionResult Index()
@@ -98,6 +98,19 @@ namespace MVC5Course.Controllers
         public ActionResult RunJavaScript()
         {
             return JavaScript("alert('JS OK!')");
+        }
+
+        public ActionResult Json1()
+        {
+            // 因為導覽屬性的關係，會導致循環參考(無限迴圈)，故將此延遲載入關閉，當讀取到導覽屬性時，會變成null，則不會造成循環參考。
+            db.Configuration.LazyLoadingEnabled = false;
+            var data = db.Product.Take(10);
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult JQueryToGetJsonData()
+        {
+            return View();
         }
     }
 }
