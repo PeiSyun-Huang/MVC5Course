@@ -13,6 +13,14 @@ namespace MVC5Course
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Route 改為預設值
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            /*
             routes.MapRoute(
                 name: "General",
                 url: "{controller}.{action}/{id}",
@@ -31,6 +39,7 @@ namespace MVC5Course
                 url: "",
                 defaults: new { controller = "Home", action = "Index" }
             );
+            */
         }
     }
 }
