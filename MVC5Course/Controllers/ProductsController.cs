@@ -77,18 +77,34 @@ namespace MVC5Course.Controllers
         // POST: Products/Edit/5
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
+
+        // 預設的 更新 方法，會有Bug
+        // 理論上我們不會讓使用者更新Active這個欄位，就算Include拿掉Active這個欄位，也會導致Active為預設值False(若無預設值則會是null)，原本Active如果是True，則其值會被變更，這不是我們要的。
+        //public ActionResult Edit([Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(product).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(product);
+        //}
+
+        // 採用延遲驗證解決上述Bug
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product)
+        public ActionResult Edit(int id, FormCollection unused)
         {
-            if (ModelState.IsValid)
+            var product = db.Product.Find(id);
+            if (TryUpdateModel<Product>(product, new string[] { "ProductName", "Price", "Stock" }))
             {
-                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(product);
         }
+
 
         // GET: Products/Delete/5
         public ActionResult Delete(int? id)
