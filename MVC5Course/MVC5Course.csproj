@@ -187,6 +187,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActionFilterController.cs" />
     <Compile Include="Controllers\ActionResultController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
@@ -429,6 +430,8 @@
     <Content Include="Views\ModelBinding\Complex3.cshtml" />
     <Content Include="Views\ModelBinding\Complex4.cshtml" />
     <Content Include="Views\ModelBinding\Complex5.cshtml" />
+    <Content Include="Views\ActionFilter\MadeMeWrong.cshtml" />
+    <Content Include="Views\Shared\ErrorArgument.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
