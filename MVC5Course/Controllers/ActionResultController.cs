@@ -112,5 +112,40 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
+
+
+        // 以下轉址若為一個網站的新舊網址來說，永久轉址較好，因為會繼承原Google已經打好的分數，而不是重新打分數。
+
+        /* HTTP 狀態碼
+            1xx - 參考資訊(Informational)。
+            2xx - 成功(OK)：一般最常見的HTTP狀態碼如200代表OK，也就是網頁正常回應的意思，
+            201代表Created代表伺服器端已經成功建立資源。
+            3xx - 重新導向(Redirection)：剛剛看過的302代表Found，意即找到這個資源，但暫時
+            移到另一個URL，而301則代表Moved Permanently，意即URL已經發生永久改變，用戶
+            端必須轉向到另一個URL，且不用保留原本URL的紀錄。
+            4xx - 用戶端錯誤(Client Error)：這裡最常見的就是404 Not Found，代表找不到網頁，
+            還有401 Unauthorized，代表拒絕存取也都是非常常見的用戶端錯誤。
+            5xx - 伺服器錯誤(Server Error)：當伺服器發生錯誤時會回應5xx的狀態碼，而500
+            Internal Server Error屬內部伺服器錯誤，也是經常看見的HTTP狀態碼。
+        */
+
+        // 暫時轉址，HTTP狀態碼為302，暫時轉址會讓Google對網頁重新打分數
+        public ActionResult Redirect1()
+        {
+            return Redirect("http://tw.yahoo.com");
+        }
+
+        // 暫時轉址，HTTP狀態碼為302，暫時轉址會讓Google對網頁重新打分數
+        public ActionResult Redirect2()
+        {
+            return Redirect("/Home/About");
+        }
+
+        // 永久轉址，HTTP狀態碼為301，永久轉址會讓Google對網頁打的分數繼承至新網頁
+        // 永久轉址會讓Google知道網站要換新網址，會重新建立索引，讓新網址可以繼承之前的分數被搜尋到
+        public ActionResult Redirect3()
+        {
+            return RedirectPermanent("http://tw.yahoo.com");
+        }
     }
 }
