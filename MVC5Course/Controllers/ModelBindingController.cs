@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC5Course.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -45,6 +46,57 @@ namespace MVC5Course.Controllers
             // 無論進來幾次都會出現訊息
             ViewData["Message3"] = Session["Message3"];
             return View();
+        }
+
+        // 簡單模型繫結
+        public ActionResult Simple1()
+        {
+            return View();
+        }
+
+        // 傳入的變數名稱等同於欄位名稱(無論大小寫)，模組繫結會自動判斷
+        [HttpPost]
+        public ActionResult Simple1(string Username, string Password)
+        {
+            return Content("Simple1:" + Username + " / " + Password);
+        }
+
+        public ActionResult Simple2()
+        {
+            return View("Simple1");
+        }
+
+        [HttpPost]
+        public ActionResult Simple2(FormCollection form)
+        {
+            return Content("Simple2:" + form["Username"] + " / " + form["Password"]);
+        }
+
+        // 複雜模型繫結
+        public ActionResult Complex1()
+        {
+            return View("Simple1");
+        }
+
+        // 單一表單直接傳入，無需理會變數名稱
+        [HttpPost]
+        public ActionResult Complex1(Simple1ViewModel item)
+        {
+            return Content("Complex1:" + item.Username + " / " + item.Password);
+        }
+
+        public ActionResult Complex2()
+        {
+            return View();
+        }
+
+        // 如果想同時送出多個表單同名欄位，需額外設定各欄位的name
+        // 以此例子來說，各欄位前面需加前輟詞(Prefix) item1 / item2 (根據傳入的變數名稱)
+        // 讓模組繫結知道屬於哪一個表單的欄位
+        [HttpPost]
+        public ActionResult Complex2(Simple1ViewModel item1, Simple1ViewModel item2)
+        {
+            return Content("Complex2:" + item1.Username + " / " + item1.Password + "<br/>" + item2.Username + " / " + item2.Password);
         }
     }
 }
