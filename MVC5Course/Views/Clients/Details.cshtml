@@ -146,7 +146,10 @@
 
         Client's Order List
 
-        @Html.Action("Index", "Orders", new { clientID = @Model.ClientId })
+        @*@Html.Action("Index", "Orders", new { clientID = @Model.ClientId })*@
+
+        @* 跳過控制器，直接將該Client的Order丟到OrderList裡面，並回傳無主版的View *@
+        @Html.Partial("OrderList",Model.Order.ToList())
 
     </dl>
 </div>

@@ -610,6 +610,7 @@
     <Content Include="Views\View\Index.cshtml" />
     <Content Include="Views\Metro\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.Metro.cshtml" />
+    <Content Include="Views\Clients\OrderList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
