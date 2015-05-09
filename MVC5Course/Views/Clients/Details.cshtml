@@ -122,7 +122,7 @@
             @Html.DisplayFor(model => model.Latitude)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Notes)
         </dt>
 
@@ -136,7 +136,17 @@
 
         <dd>
             @Html.DisplayFor(model => model.Occupation.OccupationName)
-        </dd>
+        </dd>*@
+
+        @*
+    顯示該客戶的所有訂單資料
+    笨方法：在Client內建立資料，並在此用foreach顯示
+    好方法：修改Orders的Index，傳入ClientId作篩選，並用@Html.Action將資料回傳，回傳為PartialView，因為不需要主版
+        *@
+
+        Client's Order List
+
+        @Html.Action("Index", "Orders", new { clientID = @Model.ClientId })
 
     </dl>
 </div>

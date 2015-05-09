@@ -16,10 +16,18 @@ namespace MVC5Course.Controllers
         //private FabricsEntities db = new FabricsEntities();
 
         // GET: Orders
-        public ActionResult Index()
+        public ActionResult Index(int clientID = 0)
         {
             var order = db.Order.Include(o => o.Client);
-            return View(order.ToList());
+
+            if (clientID > 0)
+            {
+                order = order.Where(o => o.ClientId == clientID);
+            }
+
+            // 將主板拿掉
+            //return View(order.ToList());
+            return PartialView(order.ToList());
         }
 
         // GET: Orders/Details/5
@@ -34,6 +42,7 @@ namespace MVC5Course.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(order);
         }
 
