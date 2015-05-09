@@ -42,6 +42,7 @@ namespace MVC5Course.Models
         [StringLength(20, ErrorMessage="欄位長度不得大於 20 個字元")]
         public string TelephoneNumber { get; set; }
         
+        [UIHint("GoogleMap")]
         [StringLength(100, ErrorMessage="欄位長度不得大於 100 個字元")]
         public string Street1 { get; set; }
         

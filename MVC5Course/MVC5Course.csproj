@@ -613,6 +613,8 @@
     <Content Include="Views\Clients\OrderList.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Client.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Client.v2.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OrderList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\GoogleMap.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

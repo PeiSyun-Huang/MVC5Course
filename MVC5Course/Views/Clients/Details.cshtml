@@ -23,6 +23,9 @@
 
         @Html.DisplayForModel("Client.v2")
 
+        @* @Html.DisplayForModel() 等同於 @Html.DisplayFor(m => m) *@
+        @*@Html.DisplayFor(m => m)*@
+
         @*
     顯示該客戶的所有訂單資料
     笨方法：在Client內建立資料，並在此用foreach顯示
@@ -34,7 +37,9 @@
         @*@Html.Action("Index", "Orders", new { clientID = @Model.ClientId })*@
 
         @* 跳過控制器，直接將該Client的Order丟到OrderList裡面，並回傳無主版的View *@
-        @Html.Partial("OrderList",Model.Order.ToList())
+        @*@Html.Partial("OrderList",Model.Order.ToList())*@
+        @Html.DisplayFor(m => m.Order, "OrderList");
+
 
     </dl>
 </div>
