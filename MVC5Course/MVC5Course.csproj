@@ -611,6 +611,8 @@
     <Content Include="Views\Metro\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.Metro.cshtml" />
     <Content Include="Views\Clients\OrderList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Client.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Client.v2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
