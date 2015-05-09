@@ -5,3 +5,9 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@* 若此處有此Section設定，則Layout也必須有相對應的Section設定，否則會錯誤 *@
+@section Script {
+    @* 此處為文字區塊，不是程式碼區塊，因此會印出 alert('OK'); *@
+    alert('OK');
+}
