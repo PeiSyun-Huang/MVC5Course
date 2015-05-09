@@ -1,0 +1,36 @@
+﻿@*
+此頁目標是練習如何用Razor語法輸出以下內容並於網頁原始碼檢視
+12345
+
+
+1 2 3 4 5
+
+
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+*@
+@foreach (var item in ViewBag.IntArray)
+{
+    @item
+}
+
+
+
+@foreach (var item in ViewBag.IntArray)
+{
+    @(item+" ")
+}
+
+
+
+<ul>
+@foreach (var item in ViewBag.IntArray)
+{
+  <li>@item</li>
+}
+</ul>

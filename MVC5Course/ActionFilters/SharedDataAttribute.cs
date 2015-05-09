@@ -15,9 +15,12 @@ namespace MVC5Course.ActionFilters
     // WebForms: PM> Install-Package Glimpse.WebForms
     // MVC: PM> Install-Package Glimpse.MVC5
 
-    // Strp 2. What about Data Access?
+    // Step 2. What about Data Access?
     // Raw ADO: PM> Install-Package Glimpse.ADO
     // Entity Framework 6: PM> Install-Package Glimpse.EF6
+
+    // Step 3. Enable
+    // 本機Enable網址 http://localhost:xxxxx/glimpse.axd
     public class SharedDataAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
