@@ -28,17 +28,29 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Clients
-        public ActionResult Index(string gender = "")
+        // 靜態 下拉式選單 (已註解)
+        //public ActionResult Index(string gender = "")
+        //{
+        //    //var client = db.Client.Include(c => c.Occupation).Take(10);
+        //    var client = repoClient.All(gender).Take(10);
+
+        //    List<SelectListItem> listGender = new List<SelectListItem>();
+
+        //    listGender.Add(new SelectListItem() { Text = "男人", Value = "M" });
+        //    listGender.Add(new SelectListItem() { Text = "女人", Value = "F" });
+
+        //    ViewBag.Genders = new SelectList(listGender, "Value", "Text", gender);
+
+        //    return View(client.ToList());
+        //}
+
+        // 動態 下拉式選單
+        public ActionResult Index(string City = "")
         {
             //var client = db.Client.Include(c => c.Occupation).Take(10);
-            var client = repoClient.All(gender).Take(10);
+            var client = repoClient.SearchByCity(City).Take(10);
 
-            List<SelectListItem> listGender = new List<SelectListItem>();
-
-            listGender.Add(new SelectListItem() { Text = "男人", Value = "M" });
-            listGender.Add(new SelectListItem() { Text = "女人", Value = "F" });
-
-            ViewBag.Genders = new SelectList(listGender, "Value", "Text", gender);
+            ViewBag.Cities = new SelectList(repoClient.All().Select(c => new { c.City }).Distinct().ToList(), "City", "City", City);
 
             return View(client.ToList());
         }

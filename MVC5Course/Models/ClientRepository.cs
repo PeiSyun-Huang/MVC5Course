@@ -6,15 +6,27 @@ namespace MVC5Course.Models
 {   
 	public  class ClientRepository : EFRepository<Client>, IClientRepository
 	{
-        public IQueryable<Client> All(string sGender = "")
+        public IQueryable<Client> All(string sGender)
         {
             if (sGender == "")
             {
-                return base.All().Where(c => c.IsDelete == false);
+                return All().Where(c => c.IsDelete == false);
             }
             else
             {
-                return base.All().Where(c => c.IsDelete == false && c.Gender == sGender);
+                return All().Where(c => c.IsDelete == false && c.Gender == sGender);
+            }
+        }
+
+        public IQueryable<Client> SearchByCity(string sCity)
+        {
+            if (sCity == "")
+            {
+                return All();
+            }
+            else
+            {
+                return All().Where(c => c.City == sCity);
             }
         }
 

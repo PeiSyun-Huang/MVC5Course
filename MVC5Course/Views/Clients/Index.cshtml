@@ -11,12 +11,31 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 
-@* 表單查詢(已註解) *@
-@*@using (Html.BeginForm()) {*@
+    @*@Html.DropDownList("SelectGender", ViewBag.Genders as SelectList, "--請選擇--", new { onchange = "location.search = '?gender=' + $('#SelectGender').val() " })*@
 
-    @Html.DropDownList("SelectGender", ViewBag.Genders as SelectList, "--請選擇--", new { onchange="location.search = '?gender=' + $('#SelectGender').val() " })
-    
-    @*@Html.DropDownList("Gender", ViewBag.Genders as SelectList, "--請選擇--")
+    @* 這樣JS不好維護 *@
+    @*@Html.DropDownList("Cities1", ViewBag.Cities as SelectList, "--請選擇--", new { onchange = "location.search = '?city=' + $('#Cities1').val() " })*@
+
+    @*
+    Cities > Cities1
+    因為預設會先抓ViewBag.Cities，會導致無法取得預設選取值(因為是SelectList不是String)
+    只要把名稱改成和ViewBag的屬性名稱不一樣即可
+    *@
+    @Html.DropDownList("Cities1", ViewBag.Cities as SelectList, "--請選擇--", new { onchange = "location.search = '?city=' + $('#Cities1').val() " })
+
+    @* 將JS獨立出來，較好維護 *@
+    <script>
+        $(function () {
+            // 用@Html 去抓ID
+            $('#@(Html.Id("Cities1"))').change("change", function () {
+                location.search = '?city=' + $(this).val();
+            });
+        });
+    </script>
+
+@* 表單查詢(已註解) *@
+@*@using (Html.BeginForm()) {
+    @Html.DropDownList("Gender", ViewBag.Genders as SelectList, "--請選擇--")
     @Html.TextBox("Name", "")
 
     <div class="form-group">
@@ -25,6 +44,9 @@
         </div>
     </div>
     }*@
+
+
+
 </p>
 <table class="table">
     <tr>
@@ -42,6 +64,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.CreditRating)
@@ -95,6 +120,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.CreditRating)
