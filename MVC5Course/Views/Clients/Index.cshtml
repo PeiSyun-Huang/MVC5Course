@@ -10,6 +10,21 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
+@* 表單查詢(已註解) *@
+@*@using (Html.BeginForm()) {*@
+
+    @Html.DropDownList("SelectGender", ViewBag.Genders as SelectList, "--請選擇--", new { onchange="location.search = '?gender=' + $('#SelectGender').val() " })
+    
+    @*@Html.DropDownList("Gender", ViewBag.Genders as SelectList, "--請選擇--")
+    @Html.TextBox("Name", "")
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </div>
+    }*@
 </p>
 <table class="table">
     <tr>
