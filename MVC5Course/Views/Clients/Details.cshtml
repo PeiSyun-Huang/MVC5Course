@@ -4,6 +4,14 @@
     ViewBag.Title = "Details";
 }
 
+@{
+    if (IsAjax)
+    {
+        // 如果是 Ajax ，則不載入版面
+        Layout = "";
+    }
+}
+
 <h2>Details</h2>
 
 <div>
@@ -44,6 +52,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (IsAjax == false)
+    {
+        // 如果不是 Ajax ，則顯示功能列
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId });
+        @:|
+        @Html.ActionLink("Back to List", "Index");
+    }
 </p>

@@ -159,10 +159,26 @@
         </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.ClientId }) |*@
+
+            @* 利用 Ajax 去取得 Detail 回來，並顯示於指定的ID內 *@
+            @Ajax.ActionLink("Details", "Details", new { id = item.ClientId }, new AjaxOptions() { UpdateTargetId = "detail" + item.ClientId, LoadingElementId = "loading" + item.ClientId })
+
             @Html.ActionLink("Delete", "Delete", new { id=item.ClientId })
         </td>
     </tr>
-}
+    
+    <tr>
+        <td></td>
+        <td colspan="10">
+            <div id="loading@(item.ClientId)" style="display:none">
+                <img src="~/img/ajax-loader.gif">
+            </div>
+            <div id="detail@(item.ClientId)">
 
+            </div>
+        </td>
+    </tr>
+}
 </table>
+

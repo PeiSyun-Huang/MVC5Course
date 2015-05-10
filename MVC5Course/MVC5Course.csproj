@@ -359,6 +359,7 @@
     <Content Include="font\glyphiconshalflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\ajax-loader.gif" />
     <Content Include="img\arrows-active.png" />
     <Content Include="img\arrows-normal.png" />
     <Content Include="img\avatar.jpg" />
