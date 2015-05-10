@@ -206,6 +206,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActionFilterController.cs" />
     <Compile Include="Controllers\ActionResultController.cs" />
+    <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\CRUDController.cs" />
@@ -615,6 +616,8 @@
     <Content Include="Views\Shared\DisplayTemplates\Client.v2.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\OrderList.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\GoogleMap.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Ajax\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
