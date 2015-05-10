@@ -55,6 +55,9 @@ namespace MVC5Course.Controllers
 
             var pagedData = client.ToPagedList(pageNo, 10);
 
+            // 使 PagedList 可取得 City 參數
+            ViewBag.City = City;
+
             return View(pagedData);
         }
 

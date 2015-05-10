@@ -64,7 +64,8 @@
 </p>
 
 @* 此處使用 Ajax PagedList，如無第三參數，則為非 Ajax 分頁 *@
-@Html.PagedListPager(data, page => Url.Action("Index", new { pageNo = page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "Main", LoadingElementId = "loadingPagedList" }))
+@* 使 PagedList 可取得 City 參數 *@
+@Html.PagedListPager(data, page => Url.Action("Index", new { pageNo = page, city = ViewBag.City }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "Main", LoadingElementId = "loadingPagedList" }))
 
 <div id="loadingPagedList" style="display:none">
     <img src="~/img/ajax-loader.gif">
