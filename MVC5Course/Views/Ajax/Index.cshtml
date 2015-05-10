@@ -9,5 +9,17 @@
 
 <div id="NowDateTime">
 
+@Ajax.ActionLink("GetJson", "GetJson", new AjaxOptions() { 
+    OnSuccess="GetJsonResult",
+    HttpMethod="POST",
+    Confirm="你確定要取得Json"
+})
+
+    <script>
+        function GetJsonResult(data) {
+            console.log(data);  // 可使用 this ，此時 this 即是 Ajax.ActionLink 超連結物件
+        }
+    </script>
+
 </div>
 
