@@ -35,7 +35,10 @@
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+        @* 在此要把 RenderBody 定義一個元素 ID，好讓 Ajax PagedList 知道要取代哪一元素 *@
+        <div id="Main">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>

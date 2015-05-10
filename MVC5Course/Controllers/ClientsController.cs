@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
+using PagedList;
 
 namespace MVC5Course.Controllers
 {
@@ -45,14 +46,16 @@ namespace MVC5Course.Controllers
         //}
 
         // 動態 下拉式選單
-        public ActionResult Index(string City = "")
+        public ActionResult Index(string City = "", int pageNo = 1)
         {
             //var client = db.Client.Include(c => c.Occupation).Take(10);
-            var client = repoClient.SearchByCity(City).Take(10);
+            var client = repoClient.SearchByCity(City);
 
             ViewBag.Cities = new SelectList(repoClient.All().Select(c => new { c.City }).Distinct().ToList(), "City", "City", City);
 
-            return View(client.ToList());
+            var pagedData = client.ToPagedList(pageNo, 10);
+
+            return View(pagedData);
         }
 
         // GET: Clients/Details/5

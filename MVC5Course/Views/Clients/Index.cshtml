@@ -1,9 +1,23 @@
 ﻿@* 此處可使用 using ，亦可由 Views 內的 WebConfig 統一設定預設的命名空間 *@
 @* @using MVC5Course.Models *@
 @model IEnumerable<Client>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    if (IsAjax)
+    {
+        // 如果是 Ajax 呼叫，則不套用版面
+        Layout = "";
+    }
+}
 
 @{
     ViewBag.Title = "Index";
+}
+
+@{
+    var data = Model as PagedList<Client>;
 }
 
 <h2>Index</h2>
@@ -48,6 +62,17 @@
 
 
 </p>
+
+@* 此處使用 Ajax PagedList，如無第三參數，則為非 Ajax 分頁 *@
+@Html.PagedListPager(data, page => Url.Action("Index", new { pageNo = page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "Main", LoadingElementId = "loadingPagedList" }))
+
+<div id="loadingPagedList" style="display:none">
+    <img src="~/img/ajax-loader.gif">
+</div>
+<div>
+    第 @(data.FirstItemOnPage) - @(data.LastItemOnPage) 筆(共 @(data.TotalItemCount) 筆)，共 @(data.PageCount) 頁
+</div>
+
 <table class="table">
     <tr>
         <th>

@@ -32,7 +32,8 @@ namespace MVC5Course.Models
 
         public override IQueryable<Client> All()
         {
-            return base.All().Where(c => c.IsDelete == false);
+            // 因為 PagedList 需要使用排序過的資料，故必須在此加上 Order by
+            return base.All().Where(c => c.IsDelete == false).OrderBy(c => c.ClientId);
         }
 
         public Client Find(int id)
